@@ -1,0 +1,403 @@
+@font-face {
+  font-family: "Plus Jakarta Sans";
+  src: url(./fonts/PlusJakartaSans-VariableFont_wght.ttf);
+}
+
+/* ============ المتغيرات ============ */
+:root {
+  --bg: hsl(202, 86%, 94%);
+  --red: hsl(4, 69%, 50%);
+  --white: hsl(0, 0%, 100%);
+  --dark: hsl(202, 55%, 16%);
+  --dark-l: hsl(201, 50%, 29%);
+  --gray: hsl(201, 11%, 66%);
+  --gray_dark: hsl(198, 6%, 45%);
+}
+
+/* ============ إعادة الضبط ============ */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ============ الأساس ============ */
+body {
+  margin: 0;
+  padding: 20px 0 60px;
+  min-height: 100vh;
+  background-color: var(--bg);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: flex;
+  align-items: center;
+}
+.container {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+
+  /* البطاقة الواحدة */
+  background-color: var(--white);
+  border-radius: 20px;
+  overflow: hidden; /* يقص الأركان الخارجية للقسمين */
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.con1 {
+  background-color: var(--white);
+  padding: 40px;
+  width: 50%;
+  border-radius: 0; /* شيلنا الـ 30px القديمة */
+}
+
+.con2 {
+  background-color: var(--dark);
+  padding: 40px;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+
+  /* المنحنى الكبير اللي في التصميم */
+  border-radius: 0 0 0 80px;
+}
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.header h1 {
+  color: var(--dark);
+  font-size: 20px;
+}
+.header h3 {
+  color: var(--gray);
+  font-size: 13px;
+  border-bottom: 1px solid var(--gray);
+}
+.header h3:hover {
+  cursor: pointer;
+  color: var(--gray_dark);
+}
+.h3 {
+  color: var(--gray);
+  font-size: 15px;
+}
+.flex2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  gap: 1rem;
+}
+input {
+  border-radius: 10px;
+  background-color: 0;
+  outline: none;
+  border: none;
+  color: var(--dark);
+  border: 2px solid var(--dark-l);
+  padding: 10px 5px;
+  width: 100%;
+  font-size: 1.5rem;
+}
+input:focus {
+  border: 2.5px solid var(--dark);
+}
+.allw {
+  width: 100%;
+}
+.plob {
+  position: relative;
+}
+
+.plob input {
+  padding-left: 50px;
+}
+
+.plob h3 {
+  position: absolute;
+  z-index: 1;
+
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  height: 93%;
+  margin: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--bg);
+  color: hsl(200, 24%, 40%);
+
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-left: 2px solid var(--dark);
+}
+
+.plob h3.right {
+  left: auto;
+  right: 0;
+
+  border-radius: 0;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  border-left: none;
+  border-right: 2px solid var(--dark);
+}
+.con2 img {
+  width: 170px;
+  height: 170px;
+  margin-bottom: 20px;
+}
+.con2 h1 {
+  color: var(--white);
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+.con2 p {
+  color: var(--gray);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.errorMessage {
+  display: none;
+  color: var(--red);
+}
+.error .errorMessage {
+  display: block;
+}
+
+/* ============ Mortgage Type ============ */
+.mortgage-type {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.radio-option {
+  position: relative;
+  border: 1px solid var(--dark-l);
+  border-radius: 6px;
+  background-color: var(--white);
+  transition:
+    border-color 0.2s,
+    background-color 0.2s;
+}
+
+/* إلغاء ستايل الـ input العام وعمل راديو مخصص */
+.radio-option input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  position: absolute;
+  left: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  padding: 0;
+  border: 2px solid var(--dark-l);
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: border-color 0.2s;
+}
+
+/* النقطة الداخلية */
+.radio-option input[type="radio"]::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: hsl(61, 70%, 52%);
+  transform: scale(0);
+  transition: transform 0.15s ease-in-out;
+}
+
+.radio-option input[type="radio"]:checked {
+  border-color: hsl(61, 70%, 52%);
+}
+
+.radio-option input[type="radio"]:checked::before {
+  transform: scale(1);
+}
+
+.radio-option input[type="radio"]:focus {
+  border: 2px solid var(--dark-l);
+}
+
+.radio-option input[type="radio"]:checked:focus {
+  border-color: hsl(61, 70%, 52%);
+}
+
+/* الـ label يغطي الصندوق كله */
+.radio-option label {
+  display: block;
+  width: 100%;
+  padding: 14px 20px 14px 54px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--dark);
+  cursor: pointer;
+}
+
+/* Hover */
+.radio-option:hover {
+  border-color: hsl(61, 70%, 52%);
+}
+
+/* Active / Checked */
+.radio-option:has(input:checked) {
+  border-color: hsl(61, 70%, 52%);
+  background-color: hsla(61, 70%, 52%, 0.15);
+}
+
+/* حالة الخطأ */
+.error .radio-option {
+  border-color: var(--red);
+}
+.error .radio-option input[type="radio"] {
+  border-color: var(--red);
+}
+
+.button {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: hsl(61, 70%, 52%);
+  border-radius: 5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  border: none;
+  outline: none;
+  padding: 15px 15px;
+  width: 70%;
+  color: var(--dark);
+  text-align: center;
+  z-index: 1;
+  margin-top: 2rem;
+}
+
+.button input {
+  border: none;
+  outline: none;
+  background: 0;
+  font-size: 1.3rem;
+}
+.button:hover {
+  background-color: hsla(61, 70%, 52%, 0.544);
+}
+@media (max-width: 700px) {
+  body {
+    padding: 0;
+  }
+  .container {
+    flex-direction: column;
+    border-radius: 0;
+    max-width: 100%;
+  }
+
+  .con1,
+  .con2 {
+    width: 100%;
+  }
+
+  .con2 {
+    border-radius: 0; /* في تصميم الموبايل بيبقى مستقيم */
+  }
+}
+/* ============ مؤشر الماوس ============ */
+.header h3,
+.button,
+.radio-option,
+.radio-option label,
+.radio-option input[type="radio"] {
+  cursor: pointer;
+}
+
+.plob input {
+  cursor: pointer;
+}
+
+.plob input:focus {
+  cursor: text;
+}
+
+/* علامات £ و years و % تعدّي الماوس للـ input اللي تحتها */
+.plob h3 {
+  pointer-events: none;
+}
+
+.error .plob input {
+  border-color: var(--red);
+}
+.error .plob h3 {
+  background-color: var(--red);
+  color: var(--white);
+  border-color: var(--red);
+}
+
+.con2.has-results {
+  align-items: flex-start;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.results h1 {
+  color: var(--white);
+  font-size: 24px;
+}
+
+.results p {
+  color: var(--gray);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.results__box {
+  margin-top: 24px;
+  padding: 24px;
+  background: hsl(202, 55%, 10%);
+  border-top: 4px solid hsl(61, 70%, 52%);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: var(--gray);
+}
+
+.results__monthly {
+  color: hsl(61, 70%, 52%);
+  font-size: 3rem;
+}
+
+.results__total {
+  color: var(--white);
+  font-size: 1.5rem;
+}
+
+.results__box hr {
+  width: 100%;
+  border: none;
+  border-top: 1px solid var(--dark-l);
+  margin: 10px 0;
+}

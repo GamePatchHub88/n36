@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="./style.css" />
+
+    <title>Mortgage repayment calculator</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="con1">
+        <div class="header">
+          <h1>Mortgage Calculator</h1>
+          <h3>Clear All</h3>
+        </div>
+        <div>
+          <h3 class="h3">Mortgage Amount</h3>
+          <div class="amount">
+            <div class="plob">
+              <h3 style="font-size: 20px; width: 40px">£</h3>
+              <input type="text" class="allw" />
+            </div>
+            <h4 class="errorMessage">The field is required</h4>
+          </div>
+        </div>
+        <div class="flex2">
+          <div>
+            <h3 class="h3">Mortgage Term</h3>
+            <div>
+              <div class="plob">
+                <h3 class="right" style="width: 70px">years</h3>
+                <input
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                  style="padding-right: 80px; padding-left: 5px"
+                />
+              </div>
+              <h4 class="errorMessage">The field is required</h4>
+            </div>
+          </div>
+          <div>
+            <h3 class="h3">Interest Rate</h3>
+            <div>
+              <div class="plob">
+                <h3 class="right" style="width: 40px">%</h3>
+                <input
+                  type="text"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '')"
+                  style="
+                    padding-right: 50px;
+                    padding-left: 5px;
+                    padding-right: 50px;
+                  "
+                />
+              </div>
+              <h4 class="errorMessage">The field is required</h4>
+            </div>
+          </div>
+        </div>
+        <div>
+          <h3 class="h3">Mortgage Type</h3>
+          <div class="mortgage-type">
+            <div class="radio-option">
+              <input type="radio" name="mortgage-type" id="repayment" />
+              <label for="repayment">Repayment</label>
+            </div>
+            <div class="radio-option">
+              <input type="radio" name="mortgage-type" id="interest-only" />
+              <label for="interest-only">Interest Only</label>
+            </div>
+            <h4 class="errorMessage">The field is required</h4>
+          </div>
+        </div>
+        <div class="button">
+          <input type="submit" value="Calculate Repayments">
+          <img src="./images/icon-calculator.svg" alt="" /> 
+        </div>
+      </div>
+      <div class="con2">
+        <img src="./images/illustration-empty.svg" alt="" />
+        <h1>Results shown here</h1>
+        <p>
+          Complete the form and click “calculate repayments” to see what your
+          monthly repayments would be.
+        </p>
+      </div>
+    </div>
+
+    <script src="./scripts/script.js"></script>
+  </body>
+</html>
